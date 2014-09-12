@@ -1,0 +1,30 @@
+#! /bin/sh
+
+# (no c) S.P. 2014, released under GPLv3 or later.
+# All lefts and wrongs reserved.
+#
+# /etc/init.d/oet1
+
+  case "$1" in
+    start)
+        echo -n "Oet1 update on startup: "
+        if(`nm-tool | grep "State: connected" | wc -l`)
+            cd /usr/local/oet1
+            git pull
+        fi
+        ;;
+    stop)
+        echo -n "Oet1 update on shutdown: "
+        if(`nm-tool | grep "State: connected" | wc -l`)
+            cd /usr/local/oet1
+            git pull
+        fi
+        ;;
+    *)
+        ## If no parameters are given, print which are avaiable.
+        echo "Usage: $0 {start|stop}"
+        exit 1
+        ;;
+esac
+
+exit 0
