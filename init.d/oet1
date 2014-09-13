@@ -8,16 +8,24 @@
   case "$1" in
     start)
         echo -n "Oet1 update on startup: "
-        if(`nm-tool | grep "State: connected" | wc -l`)
-            cd /usr/local/oet1
-            git pull
+	conn=`nm-tool | grep "State: connected" | wc -l`
+        if [ "$conn" -eq "1" ] 
+		then
+            cd /usr/local/OET1;
+            git pull;
+	    cp /usr/local/OET1/scripts/*.sh /usr/local/bin;
+	    cp /usr/local/OET1/init.d/oet1 /etc/init.d;
         fi
         ;;
     stop)
         echo -n "Oet1 update on shutdown: "
-        if(`nm-tool | grep "State: connected" | wc -l`)
-            cd /usr/local/oet1
-            git pull
+	conn=`nm-tool | grep "State: connected" | wc -l`
+        if [ "$conn" -eq "1" ] 
+		then
+            cd /usr/local/OET1;
+            git pull;
+	    cp /usr/local/OET1/scripts/*.sh /usr/local/bin;
+	    cp /usr/local/OET1/init.d/oet1 /etc/init.d;
         fi
         ;;
     *)
