@@ -15,6 +15,7 @@
             git pull;
 	    cp /usr/local/OET1/scripts/*.sh /usr/local/bin;
 	    cp /usr/local/OET1/init.d/oet1 /etc/init.d;
+	    chmod a+x /etc/init.d/oet1;
         fi
         ;;
     stop)
@@ -26,6 +27,7 @@
             git pull;
 	    cp /usr/local/OET1/scripts/*.sh /usr/local/bin;
 	    cp /usr/local/OET1/init.d/oet1 /etc/init.d;
+	    chmod a+x /etc/init.d/oet1;
         fi
         ;;
     *)
