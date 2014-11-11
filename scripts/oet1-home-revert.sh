@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HOMEDIR="/home/samo/Desktop/OET1"
+HOMEDIR="/home/student/Desktop/OET1lab"
 
 rm -rf $HOMEDIR
 mkdir -p $HOMEDIR
