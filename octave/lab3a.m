@@ -59,6 +59,8 @@ file_id=fopen('plotQPalica.gpt','w');
 fclose(file_id);
 
 system("gnuplot -p plotQPalica.gpt");
+fprintf("------- Izracun kapacitivnosti modela --------\n");
+fprintf("C=%e F\n",sum(QQ)/V);
 
 fprintf("------- Izracun elektricnega polja in potenciala v tocki T(x,0,z) --------\n");
 

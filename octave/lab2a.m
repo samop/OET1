@@ -15,7 +15,7 @@ N=6;
 
 %koordinati x in z tocke T v metrih
 x=1.0;
-z=0.0;
+z=-1.0;
 
 %%%% Seznam ekvipotencialk  (v V) za izris %%%%%%
 %Slika 1 -- analitika
@@ -81,14 +81,14 @@ y=0;
 xxM=linspace(-dval*1.123,dval*1.123,123);
 yyM=linspace(-dval*1.123,dval*1.123,123); 
 loop2D(xxM,yyM,0,QQ,xx,yy,zz, 'resultDD2.dat');
-generateGPfile("plotDD2.gpt","resultDD2.dat","slika_lab2_2.png",VV2, [min(VV2),max(VV2)], "z [m]","x [m]", xx,-zz,QQ);
+generateGPfile("plotDD2.gpt","resultDD2.dat","slika_lab2_2.png",VV2, [min(VV2),max(VV2)], "z [m]","x [m]", xx,zz,QQ);
 
 system("gnuplot -p plotDD2.gpt");
 
-[Etx,Ety,Etz,Vt]=funcT2EV(x,y,z,QQ,xx,yy,zz);
+[Etx,Ety,Etz,Vt]=funcT2EV(z,-x,0,QQ,xx,yy,zz);
 
-fprintf("Ex(T)= %d V/m\n",-Etx);
-fprintf("Ez(T)= %d V/m\n",Etz);
+fprintf("Ex(T)= %d V/m\n",-Ety);
+fprintf("Ez(T)= %d V/m\n",Etx);
 fprintf("V(T)= %d V\n",Vt);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
