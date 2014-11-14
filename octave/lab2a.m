@@ -8,10 +8,14 @@
 Q=10e-8;
 
 %dolzina daljice 2l v m
-dval=7
+dval=7;
 
 %stevilo modelnih tockastih nabojev za numericen izracun
-N=6
+N=6;
+
+%koordinati x in z tocke T v metrih
+x=1.0;
+z=0.0;
 
 %%%% Seznam ekvipotencialk  (v V) za izris %%%%%%
 %Slika 1 -- analitika
@@ -30,7 +34,7 @@ fprintf("--------------------- Podatki -----------------------------\n");
 fprintf("Q=%e C\n",Q);
 fprintf("dval=%e m\n",dval);
 fprintf("N=%d\n",N);
-
+fprintf("(x,z)=(%d,%d)\n",x,z);
 
 
 
@@ -59,21 +63,33 @@ generateGPfile("plotDD1.gpt","resultDD.dat","slika_lab2_1.png",VV1, [min(VV1),ma
 system("gnuplot -p plotDD1.gpt");
 
 
+[Etx,Etz,Vt]=EVpremica(x,z,Q,dval);
+
+fprintf("Ex(T)= %d V/m\n",Etx);
+fprintf("Ez(T)= %d V/m\n",Etz);
+fprintf("V(T)= %d V\n",Vt);
+
 
 fprintf("------------ Izracun polja v okolici modela daljice --------------\n");
 QQ=Q/N*ones(N,1);
 xx=linspace(-dval/2,dval/2,N);
 yy=zeros(size(xx));
 zz=zeros(size(xx));
-z=0;
+y=0;
 
 %izrisemo ekvipotecialke
 xxM=linspace(-dval*1.123,dval*1.123,123);
 yyM=linspace(-dval*1.123,dval*1.123,123); 
 loop2D(xxM,yyM,0,QQ,xx,yy,zz, 'resultDD2.dat');
-generateGPfile("plotDD2.gpt","resultDD2.dat","slika_lab2_2.png",VV2, [min(VV2),max(VV2)], "z [m]","x [m]", xx,zz,QQ);
+generateGPfile("plotDD2.gpt","resultDD2.dat","slika_lab2_2.png",VV2, [min(VV2),max(VV2)], "z [m]","x [m]", xx,-zz,QQ);
 
 system("gnuplot -p plotDD2.gpt");
+
+[Etx,Ety,Etz,Vt]=funcT2EV(x,y,z,QQ,xx,yy,zz);
+
+fprintf("Ex(T)= %d V/m\n",-Etx);
+fprintf("Ez(T)= %d V/m\n",Etz);
+fprintf("V(T)= %d V\n",Vt);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Konec 2. naloge lab. vaje %%%%%%
