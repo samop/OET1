@@ -29,6 +29,9 @@
 	    cp /usr/local/OET1/init.d/oet1 /etc/init.d;
 	    chmod a+x /etc/init.d/oet1;
         fi
+        echo -n "Reverting home directory's Desktop/OET1lab to initial state"
+        /usr/local/bin/oet1-home-revert.sh
+        chown -R student.student /home/student/Desktop/OET1lab
         ;;
     *)
         ## If no parameters are given, print which are avaiable.
