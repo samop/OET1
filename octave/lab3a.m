@@ -26,14 +26,14 @@ VV2=[10, 20, 50, 80, 100, 200, 300, 400, 500, 600, 800, 1000, 1500, 2000];
 
 fprintf("--------------------- Podatki -----------------------------\n");
 dval=N*d;
-fprintf("V=%e V",V);
-fprintf("d=%e m",d);
+fprintf("V=%e V\n",V);
+fprintf("d=%e m\n",d);
 fprintf("N=%d\n",N);
 fprintf("dolzina palice 2l=N*d=%e m\n",dval);
 
 y=0;
 
-fprintf("------- Izracun porazdelitve naboja na kroglicah --------\n");
+%fprintf("------- Izracun porazdelitve naboja na kroglicah --------\n");
 [QQ,xx,yy,zz,AA,bb]=palica(N,d/2/dval,dval,V);
 
 
@@ -69,7 +69,7 @@ fprintf("------- Izracun elektricnega polja in potenciala v tocki T(x,0,z) -----
 fprintf("Vektor E(x,z)=(%e, %e) V/m\nPotencial V(x,y)=%e V\n",Ex,Ez,VT);
 
 
-fprintf("------------ Izracun polja v okolici modela palice --------------\n");
+%fprintf("------------ Izracun polja v okolici modela palice --------------\n");
 
 %izrisemo ekvipotecialke
 xxM=linspace(-dval*1.123,dval*1.123,123);
