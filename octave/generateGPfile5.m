@@ -1,10 +1,10 @@
-function generateGPfile5(filename, datafile, imagefile, VVList, zrange,xlabel, ylabel, Qx=[],Qy=[],QQ=[], cats="1:2:4")
+function generateGPfile5(filename, datafile, imagefile, VVList, zrange,xlabel, ylabel, Qx=[],Qy=[],QQ=[], cats="1:2:4", ratio=1)
 VVList=sort(VVList, "descend");
 %zgradimo datoteko s podatki za izris
 file_id=fopen(filename,'w');
 	fprintf(file_id,'reset\n');
 	fprintf(file_id, 'set grid\n');
-	fprintf(file_id, 'set size ratio 1\n');	
+	fprintf(file_id, 'set size ratio %6.2f\n',ratio);	
 	fprintf(file_id, 'set format "%%.2f"\n');
 	fprintf(file_id, 'set clabel "%%.0f"\n');
 	fprintf(file_id, 'set zrange [%.2f:%.2f]\n',zrange(1), zrange(end));
@@ -28,7 +28,7 @@ file_id=fopen(filename,'w');
 	end
 
 	fprintf(file_id, 'splot "%s" using %s title '''' w l lw 2\n', datafile, cats);
-	fprintf(file_id, "set terminal wxt font 'Verdana,10' persist\n");
+	fprintf(file_id, "set terminal wxt size 1200,800 font 'Verdana,10' persist\n");
 
 	for i=1:length(QQ)
 	fprintf(file_id, "set object circle at %e,%e size screen 0.002 fc rgb 'black' fs solid 0.8 noborder\n",Qx(i), Qy(i));

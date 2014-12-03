@@ -28,7 +28,7 @@ file_id=fopen(filename,'w');
 	end
 
 	fprintf(file_id, 'splot "%s" using 1:2:6 title '''' w l lw 2\n', datafile);
-	fprintf(file_id, "set terminal wxt font 'Verdana,10' persist\n");
+	fprintf(file_id, "set terminal wxt size 1200,800 font 'Verdana,10' persist\n");
 
 	for i=1:length(QQ)
 	fprintf(file_id, "set object circle at %e,%e size screen 0.002 fc rgb 'black' fs solid 0.8 noborder\n",Qx(i), Qy(i));

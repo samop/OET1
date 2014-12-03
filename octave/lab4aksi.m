@@ -14,7 +14,7 @@ b=2e-2;
 c=3e-2;
 
 %stevilo delitev zile:
-N=20;
+N=10;
 
 %napetost med zilo in plascem v V:
 Uab=10e3;
