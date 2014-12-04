@@ -5,11 +5,11 @@
 %%%%%%%%%   elektrodi    %%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%dolzina stranice a (v x-smeri) v m:
-a=2e-2;
+%dolzina stranice a (v y-smeri) v m:
+a=8e-2;
 
-%dolzina stranice b (v y-smeri) v m:
-b=8e-2;
+%dolzina stranice b (v x-smeri) v m:
+b=2e-2;
 
 %razdalja med ploscama d v m:
 d=3e-2;
@@ -34,6 +34,12 @@ VV3=linspace(-Uab/2,Uab/2,12);
 
 
 [xx,yy,zz,QQ,V1,V2]=NPcomputeQ(N,a,b,d,Uab);
+
+%izris naboja na ploscah
+NPrects2gpt('vaja5_1.gpt',N,a,b,d,xx,yy,zz,QQ);
+system("gnuplot -p vaja5_1.gpt");
+
+%izris ekvipotencialk iz prereza
 xmin=-a;xmax=-xmin;
 ymin=-d;ymax=-ymin;
 np=50;
@@ -42,33 +48,14 @@ xxT=xxT(:);
 yyT=yyT(:);
 z=0.0;
 zzT=z*ones(np*np,1);
-NPcompVmesh('vaja5_1.dat',xxT,yyT,zzT,xx,yy,zz,QQ); %pripravimo izhodne podatke
-
+NPcompVmesh('vaja5_2.dat',xxT,yyT,zzT,xx,yy,zz,QQ); %pripravimo izhodne podatke
 r=ymax/xmax;
-generateGPfile5("vaja5_1.gpt","vaja5_1.dat","slika_lab5_1.png",VV1,[min(VV1),max(VV1)] , "x","y", xxT,yyT,[],"1:2:4", r);
+generateGPfile5("vaja5_2.gpt","vaja5_2.dat","slika_lab5_2.png",VV1,[min(VV1),max(VV1)] , "x","y", xxT,yyT,[],"1:2:4", r);
 
-
-system("gnuplot -p vaja5_1.gpt");
-
+system("gnuplot -p vaja5_2.gpt");
 
 
 %izris iz druge perspektive
-xmin=-a;xmax=a;
-ymin=-d;ymax=d;
-zmin=-b;zmax=b;
-np=100;
-[zzT,xxT]=meshgrid(linspace(zmin,zmax,np),linspace(xmin,xmax,np));
-xxT=xxT(:); 
-zzT=zzT(:); 
-y=0.5*d; 
-yyT=y*ones(np*np,1);
-%NPcompVmesh('vaja5_2.dat',xxT,yyT,zzT,xx,yy,zz,QQ);
-
-%generateGPfile5("vaja5_2.gpt","vaja5_2.dat","slika_lab5_2.png",VV2,[min(VV2),max(VV2)] , "","", xxT,yyT,[],"1:3:4");
-%system("gnuplot -p vaja5_2.gpt");
-
-
-%izris iz tretje perspektive
 xmin=-a;xmax=-xmin;
 ymin=-d;ymax=-ymin;
 zmin=-b;zmax=-zmin;
