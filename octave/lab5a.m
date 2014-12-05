@@ -36,8 +36,8 @@ VV3=linspace(-Uab/2,Uab/2,12);
 [xx,yy,zz,QQ,V1,V2]=NPcomputeQ(N,a,b,d,Uab);
 
 %izris naboja na ploscah
-NPrects2gpt('vaja5_1.gpt',N,a,b,d,xx,yy,zz,QQ);
-system("gnuplot -p vaja5_1.gpt");
+NPrects2gpt('slika_lab5_1.gpt',N,a,b,d,xx,yy,zz,QQ);
+system("gnuplot -p slika5_1.gpt");
 
 %izris ekvipotencialk iz prereza
 xmin=-a;xmax=-xmin;
