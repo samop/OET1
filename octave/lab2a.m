@@ -5,10 +5,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %skupen naboj na daljici v C
-Q=10e-8;
+Q=10e-9;
 
 %dolzina daljice 2l v m
-dval=7;
+dval=2e-2;
 
 %stevilo modelnih tockastih nabojev za numericen izracun
 N=6;
