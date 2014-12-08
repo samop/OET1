@@ -19,7 +19,7 @@ z=4e-2;
 
 %%%% Seznam ekvipotencialk  (v V) za izris %%%%%%
 %Slika 2
-VV2=[10, 20, 50, 80, 100, 200, 300, 400, 500, 600, 800, 1000, 1500, 2000];
+VV2=linspace(V/100,V,10);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Izracuni -- ne spreminjaj %%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -53,7 +53,7 @@ file_id=fopen('plotQPalica.gpt','w');
 	fprintf(file_id,'set ytics format "%%.2f"\n');
 	fprintf(file_id, 'plot "resultQPalica.dat" using 1:($2)*1e9 title '''' w p pt 3 lw 1\n');
 	fprintf(file_id, 'set terminal png size 1000,800\n');
-	fprintf(file_id, 'set output "slika_lab3_1.png"\n');
+	fprintf(file_id, 'set output "slika_lab3_1_N_%d.png"\n',N);
 	fprintf(file_id, 'plot "resultQPalica.dat" using 1:($2)*1e9 title '''' w p pt 3 lw 1\n');
 
 fclose(file_id);
@@ -101,7 +101,8 @@ loop2D(xxM,yyM,0,QQ,zz,xx,yy, 'resultDDpalica.dat');
 %	fprintf(file_id, 'splot "resultDDpalica.dat" using 1:2:6 title '''' w l lw 1\n');
 
 %fclose(file_id);
-generateGPfile("plotDDpalica.gpt","resultDDpalica.dat","slika_lab3_2.png",VV2, [min(VV2),5*max(VV2)], "z [m]","x [m]", xx,yy);
+filename=sprintf("slika_lab3_2_N_%d.png",N);
+generateGPfile("plotDDpalica.gpt","resultDDpalica.dat",filename,VV2, [min(VV2),5*max(VV2)], "z [m]","x [m]", xx,yy);
 
 
 
