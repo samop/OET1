@@ -21,7 +21,7 @@ Uab=10e3;
 
 %ekvipotencialke za izris
 
-VV=linspace(0,Uab,6);
+VV=linspace(0,Uab,8);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Izracuni -- ne spreminjaj %%%%%%

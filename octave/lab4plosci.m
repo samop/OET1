@@ -20,7 +20,7 @@ N=4;
 Uab=10e3;
 
 %ekvipotencialke za izris
-VV=linspace(-Uab,Uab,12);
+VV=linspace(-Uab/2,Uab/2,12);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Izracuni -- ne spreminjaj %%%%%%

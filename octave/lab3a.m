@@ -10,7 +10,7 @@ V=2000;
 d=3e-2;
 
 %stevilo kroglic modela palice
-N=14;
+N=6;
 
 %koordinati x in z tocke T (v metrih)
 x=12e-2;

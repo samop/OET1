@@ -19,14 +19,14 @@ bT=8e-2;
 %razdalja od ogljisca trikotnika do roba stranice pravokotne elektrode v m:
 dPT=0.5e-2;
 
-%stevilo delitev krajse stranice plosce(obicajno stranice a):
+%stevilo delitev stranice bP:
 N=10;
 
 %napetost med elektrodama:
 UPT=10e3;
 
 %seznam ekvipotencialk za izris:
-VV=linspace(-UPT,UPT,10);
+VV=linspace(-UPT/2,UPT/2,12);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Izracuni -- ne spreminjaj %%%%%%
