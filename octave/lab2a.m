@@ -14,8 +14,8 @@ dval=2e-2;
 N=6;
 
 %koordinati x in z tocke T v metrih
-x=1.0;
-z=-1.0;
+x=1.0e-2;
+z=2.0e-2;
 
 %%%% Seznam ekvipotencialk  (v V) za izris %%%%%%
 %Slika 1 -- analitika
