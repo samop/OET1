@@ -5,11 +5,11 @@
 %%%%%%%%%   elektrodi    %%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%dolzina stranice a (v y-smeri) v m:
-a=8e-2;
+%dolzina stranice a (v x-smeri) v m:
+a=2e-2;
 
-%dolzina stranice b (v x-smeri) v m:
-b=2e-2;
+%dolzina stranice b (v y-smeri) v m:
+b=8e-2;
 
 %razdalja med ploscama d v m:
 d=3e-2;
