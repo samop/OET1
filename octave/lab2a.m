@@ -5,7 +5,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %skupen naboj na daljici v C
-Q=10e-9;
+Q=10e-6;
 
 %dolzina daljice 2l v m
 dval=2e-2;
@@ -19,7 +19,9 @@ z=-1.0;
 
 %%%% Seznam ekvipotencialk  (v V) za izris %%%%%%
 %Slika 1 -- analitika
-VV1=[10, 20, 50, 80, 100, 200, 300, 400, 500, 600, 800, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 16000, 32000, 64000];
+%ce je seznam prazen, se ekvipotencialke naracunajo same.
+VV1=[];
+%VV1=[10, 20, 50, 80, 100, 200, 300, 400, 500, 600, 800, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 16000, 32000, 64000];
 %Slika 2 -- numericni model
 VV2=VV1;
 
@@ -34,9 +36,14 @@ fprintf("--------------------- Podatki -----------------------------\n");
 fprintf("Q=%e C\n",Q);
 fprintf("dval=%e m\n",dval);
 fprintf("N=%d\n",N);
-fprintf("(x,z)=(%d,%d)\n",x,z);
+fprintf("(x,z)=(%e,%e) m\n",x,z);
 
-
+if(length(VV1)==0)
+     [Ex,Ez,Vmin]=EVpremica(1.2*dval,1.2*dval,Q,dval);
+     [Ex,Ez,Vmax]=EVpremica(0.2e-2,0.2e-2,Q,dval);
+    VV1=linspace(Vmin,Vmax,12);
+    VV2=VV1;
+end
 
 fprintf("------- Izracun polja v okolici daljice -- analiticen izraz --------\n");
 
