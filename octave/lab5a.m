@@ -5,10 +5,10 @@
 %%%%%%%%%   elektrodi    %%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%dolzina stranice a (v x-smeri) v m:
+%dolzina stranice a (v y-smeri) v m:
 a=2e-2;
 
-%dolzina stranice b (v y-smeri) v m:
+%dolzina stranice b (v x-smeri) v m:
 b=8e-2;
 
 %razdalja med ploscama d v m:
@@ -33,14 +33,14 @@ VV3=linspace(-Uab/2,Uab/2,12);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-[xx,yy,zz,QQ,V1,V2]=NPcomputeQ(N,a,b,d,Uab);
+[xx,yy,zz,QQ,V1,V2]=NPcomputeQ(N,b,a,d,Uab);
 
 %izris naboja na ploscah
-NPrects2gpt('slika_lab5_1.gpt',N,a,b,d,xx,yy,zz,QQ);
+NPrects2gpt('slika_lab5_1.gpt',N,b,a,d,xx,yy,zz,QQ);
 system("gnuplot -p slika_lab5_1.gpt");
 
 %izris ekvipotencialk iz prereza
-xmin=-a;xmax=-xmin;
+xmin=-b;xmax=-xmin;
 ymin=-d;ymax=-ymin;
 np=50;
 [yyT,xxT]=meshgrid(linspace(ymin,ymax,np),linspace(xmin,xmax,np));
@@ -56,8 +56,8 @@ system("gnuplot -p vaja5_2.gpt");
 
 
 %izris iz druge perspektive
-xmin=-a;xmax=-xmin;
-ymin=-d;ymax=-ymin;
+xmin=-b;xmax=-xmin;
+ymin=-a;ymax=-ymin;
 zmin=-b;zmax=-zmin;
 np=50;
 [zzT,yyT]=meshgrid(linspace(zmin,zmax,np),linspace(ymin,ymax,np));
