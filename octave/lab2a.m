@@ -72,9 +72,9 @@ system("gnuplot -p plotDD1.gpt");
 
 [Etx,Etz,Vt]=EVpremica(x,z,Q,dval);
 
-fprintf("Ex(T)= %d V/m\n",Etx);
-fprintf("Ez(T)= %d V/m\n",Etz);
-fprintf("V(T)= %d V\n",Vt);
+fprintf("Ex(T)= %e V/m\n",Etx);
+fprintf("Ez(T)= %e V/m\n",Etz);
+fprintf("V(T)= %e V\n",Vt);
 
 
 fprintf("------------ Izracun polja v okolici modela daljice --------------\n");
@@ -94,9 +94,9 @@ system("gnuplot -p plotDD2.gpt");
 
 [Etx,Ety,Etz,Vt]=funcT2EV(z,-x,0,QQ,xx,yy,zz);
 
-fprintf("Ex(T)= %d V/m\n",-Ety);
-fprintf("Ez(T)= %d V/m\n",Etx);
-fprintf("V(T)= %d V\n",Vt);
+fprintf("Ex(T)= %e V/m\n",-Ety);
+fprintf("Ez(T)= %e V/m\n",Etx);
+fprintf("V(T)= %e V\n",Vt);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Konec 2. naloge lab. vaje %%%%%%
