@@ -56,9 +56,9 @@ system("gnuplot -p vaja5_2.gpt");
 
 
 %izris iz druge perspektive
-xmin=-b;xmax=-xmin;
-ymin=-a;ymax=-ymin;
-zmin=-b;zmax=-zmin;
+xmin=-a;xmax=-xmin;
+ymin=-d;ymax=-ymin;
+zmin=-a;zmax=-zmin;
 np=50;
 [zzT,yyT]=meshgrid(linspace(zmin,zmax,np),linspace(ymin,ymax,np));
 yyT=yyT(:); 
